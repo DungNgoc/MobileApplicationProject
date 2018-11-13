@@ -1,0 +1,40 @@
+
+mouserunning.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bz0
+  rotate: false
+  xy: 0, 0
+  size: 167,89
+  orig: 167,89
+  offset: 0, 0
+  index: -1
+bz1
+  rotate: false
+  xy: 0, 89
+  size: 167,89
+  orig: 167,89
+  offset: 0, 0
+  index: -1
+bz2
+  rotate: false
+  xy: 0, 178
+  size: 167,89
+  orig: 167,89
+  offset: 0, 0
+  index: -1
+bz3
+  rotate: false
+  xy: 167,0
+  size: 167,89
+  orig: 167,89
+  offset: 0, 0
+  index: -1
+bz4
+  rotate: false
+  xy: 167, 89
+  size: 167,89
+  orig: 167,89
+  offset: 0, 0
+  index: -1
