@@ -3,13 +3,18 @@ package com.gamemobile.game.actors;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.gamemobile.game.animations.AnimationCustom;
 import com.gamemobile.game.sounds.SoundEffect;
 import com.gamemobile.game.utils.PlayerInfo;
 import com.gamemobile.game.utils.ScreenConstants;
+import com.gamemobile.game.utils.ShopConstants;
 import com.gamemobile.game.utils.TextConstants;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 
 public class ActorRod extends Actor {
@@ -17,7 +22,12 @@ public class ActorRod extends Actor {
     public enum RodTag{
         GOLD_500, GOLD_250, GOLD_100, GOLD_50,
         ROCK_20, ROCK_10,
-        DINAMOND_650
+        DINAMOND_650,
+        QUESTIONBAGTYPE1,
+        TNTBOX,
+        TNTBOX_BREAK
+      //  MOUSERUNNING
+
     }
 
     public enum RodState{
@@ -41,7 +51,6 @@ public class ActorRod extends Actor {
     private SoundEffect explosionSound;
     private SoundEffect eatBonusSound;
 
-
     public ActorRod(float x, float y, float width, float height, RodTag tag){
 
         this.tag = tag;
@@ -54,6 +63,7 @@ public class ActorRod extends Actor {
 
         this.sprite = new Sprite(textureRod);
 
+
         sprite.setPosition(x,y);
         setSize(width, height);
         sprite.setSize(getWidth(), getHeight());
@@ -61,6 +71,8 @@ public class ActorRod extends Actor {
         scaleBound();
 
 
+       // mouse = new AnimationCustom("animations/mouses/mouserunning.atlas", 7,
+          //      x, y, width, height);
 
         rodExplosionAnimation = new AnimationCustom("animations/explosions/rodexplosion.atlas", 6, x, y, width, height);
         explosionPos = new float[4];
@@ -96,8 +108,9 @@ public class ActorRod extends Actor {
     private void createRodPhysical(){
         if(tag.equals(RodTag.GOLD_500)){
             money = 500;
-            weight = 2.6f * ScreenConstants.TRANSFORM_Y;
+            weight = 2.7f * ScreenConstants.TRANSFORM_Y;
             textureRod = new Texture("images/textureobjects/gold500.png");
+
             rodSound = new SoundEffect("sounds/bigmoney.ogg");
             return;
         }
@@ -123,7 +136,7 @@ public class ActorRod extends Actor {
             return;
         }
         if(tag.equals(RodTag.DINAMOND_650)){
-            money = 650;
+            money = 600;
             weight = 1f * ScreenConstants.TRANSFORM_Y;
             textureRod = new Texture("images/textureobjects/dinamond.png");
             rodSound = new SoundEffect("sounds/bigmoney.ogg");
@@ -142,6 +155,37 @@ public class ActorRod extends Actor {
             textureRod = new Texture("images/textureobjects/rock10.png");
             rodSound = new SoundEffect("sounds/rock.ogg");
             return;
+        }
+        if(tag.equals(RodTag.QUESTIONBAGTYPE1)){
+
+            Random rand = new Random();
+            this.money = rand.nextInt(500);
+            this.weight = 1.5F * ScreenConstants.TRANSFORM_Y;
+            this.textureRod = new Texture("images/textureobjects/questionbag.png");
+            if (this.money < 50) {
+                this.rodSound = new SoundEffect("sounds/rock.ogg");
+            } else if(this.money >=50 && this.money < 400){
+                this.money = 0;
+                this.rodSound = new SoundEffect("sounds/bigmoney.ogg");
+            } else
+                this.rodSound = new SoundEffect("sounds/bigmoney.ogg");
+           // this.money = 500;
+
+        }
+        if(tag.equals(RodTag.TNTBOX)){
+            money = 1;
+            this.weight = 1f *ScreenConstants.TRANSFORM_Y;
+            this.textureRod = new Texture(("images/textureobjects/tntbox.png"));
+            this.rodSound = new SoundEffect("sounds/explode.ogg");
+
+        }
+        if(tag.equals(RodTag.TNTBOX_BREAK)){
+            money = 1;
+            this.weight = 1f *ScreenConstants.TRANSFORM_Y;
+            this.textureRod = new Texture(("images/textureobjects/boxbreak.png"));
+            this.rodSound = new SoundEffect("sounds/explode.ogg");
+            //setScaleNumBoom();
+            setScaleNumBoom();
         }
     }
 
@@ -169,11 +213,22 @@ public class ActorRod extends Actor {
                 pod.setMoveSpeed(pod.getMoveSpeed() - weight);
                 pod.setPodState(ActorPod.PodState.REWIND);
                 setMoveSpeed(pod.getMoveSpeed());
+                if(this.tag.equals(RodTag.TNTBOX)){
+                    rodState = RodState.EXPLODED;
+                    explosionSound.setSoundKind(SoundEffect.SoundKind.ONE_TIME);
+                    explosionSound.playSound();
+                    pod.setMoveSpeed(30);
+                    synchronizeExplosionWithRod(pod);
+
+                }
+                else{
                 rodState = RodState.CATCHED;
                 rodSound.setSoundKind(SoundEffect.SoundKind.ONE_TIME);
                 rodSound.playSound();
-                return;
+                return;}
             }
+
+
 
 
         }
@@ -181,7 +236,13 @@ public class ActorRod extends Actor {
             eatBonusSound.setSoundKind(SoundEffect.SoundKind.ONE_TIME);
             PlayerInfo.setCurrentMoney(PlayerInfo.getCurrentMoney() + money);
 
-            talkingText.setText("Oh yeah!$" + money + "...");
+
+
+            if(this.tag.equals(RodTag.QUESTIONBAGTYPE1)) {
+                talkingText.setText("YOU GOT A BOOM");
+                PlayerInfo.setCurrentBombNum(PlayerInfo.getCurrentBombNum() + 1);
+            }else
+                talkingText.setText("Oh yeah!$" + money + "...");
             talkingText.setTextState(ActorText.TextState.FREEZE);
             TextConstants.setTakingStartTimeShow(TimeUtils.millis()/1000);
             setPosition(0 - getWidth(), 0 - getHeight());
@@ -190,7 +251,7 @@ public class ActorRod extends Actor {
             return;
         }
     }
-
+   // private float scaleNumBoom = 2;
     public void updateCollisionWithBomb(ActorPod acPod, ActorBomb acBomb){
 
         acBomb.updateCollisionWithPod(acPod);
@@ -216,7 +277,7 @@ public class ActorRod extends Actor {
     // if scale number > 50% then top,bottom, left, right will be reversed.
 
     private float scaleNum = 0.25f;
-    private float left;
+    private float left,l,t,r,b;
     private float right;
     private float bottom;
     private float top;
@@ -228,13 +289,58 @@ public class ActorRod extends Actor {
         top = getY() + getHeight()*(1f - scaleNum);
     }
 
+    public  void setScaleNumBoom(){
+        l = getX() - getWidth();
+
+        r= getX() + getWidth()*2;
+        b = getY() - getHeight()*2;
+        t = getY() + getHeight();
+    }
+    private boolean checkCatchRodBoom() {
+        if(checkCatchPodA1() || checkCatchPodB1() || checkCatchPodC1() || checkCatchPodD1()){
+            return true;
+        }
+        return false;
+    }
+    private boolean checkCatchPodA1() {
+        if (left < l && l < right
+                && bottom < b && b < top){
+            return true;
+        }
+        return false;
+    }
+    private boolean checkCatchPodB1() {
+        if (left < r && r < right
+                && bottom < b && b < top){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkCatchPodC1() {
+        if (left < l && l < right
+                && bottom < t && t < top){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkCatchPodD1() {
+        if (left < r && r < right
+                && bottom < t && t < top){
+            return true;
+        }
+        return false;
+    }
+
+
+
     private boolean checkCatchRod(ActorPod pod) {
         if(checkCatchPodA(pod) || checkCatchPodB(pod) || checkCatchPodC(pod) || checkCatchPodD(pod)){
             return true;
         }
         return false;
     }
-
     private boolean checkCatchPodA(ActorPod pod) {
         if (left < pod.getX() && pod.getX() < right
                 && bottom < pod.getY() + pod.getHeight() && pod.getY() + pod.getHeight() < top){
@@ -242,7 +348,6 @@ public class ActorRod extends Actor {
         }
         return false;
     }
-
     private boolean checkCatchPodB(ActorPod pod) {
         if (left < pod.getX() + pod.getWidth() && pod.getX() + pod.getWidth() < right
                 && bottom < pod.getY() + pod.getHeight() && pod.getY() + pod.getHeight() < top){
@@ -314,7 +419,7 @@ public class ActorRod extends Actor {
     @Override
     public void act(float delta) {
         if (rodState.equals(RodState.CATCHED)) {
-            moveRod();
+           moveRod();
         }
     }
 

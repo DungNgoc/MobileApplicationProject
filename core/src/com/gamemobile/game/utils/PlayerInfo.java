@@ -4,7 +4,7 @@ public class PlayerInfo {
 
     private static long currentMoney = 0;
     private static long currentTarget = 0;
-    private static long currentTimePlay = 60;
+    private static long currentTimePlay = 40;
     private static int currentBombNum = 3;
     private static int currentLevel = 1;
     private static Bag bag = new Bag();

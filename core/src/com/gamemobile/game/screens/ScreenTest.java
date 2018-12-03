@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.gamemobile.game.Application;
 import com.gamemobile.game.actors.ActorButton;
 import com.gamemobile.game.actors.ActorHuman;
+import com.gamemobile.game.actors.ActorMouse;
 import com.gamemobile.game.actors.ActorRod;
 import com.gamemobile.game.actors.ActorText;
 import com.gamemobile.game.miniscreens.MiniScreenState;
@@ -29,6 +30,7 @@ public class ScreenTest extends AbstractScreen {
 
     private ActorHuman acHuman;
     private ArrayList<ActorRod> lstAcRod;
+    private ArrayList<ActorMouse>lstAcMouse;
     private ActorButton actorButton;
     private ActorButton boomButton;
     private Texture background;
@@ -63,6 +65,7 @@ public class ScreenTest extends AbstractScreen {
         pauseTempTime = new long[2];
 
         lstAcRod = new ArrayList<ActorRod>();
+        lstAcMouse  = new ArrayList<ActorMouse>();
         lstAcText = new HashMap<ActorText.TextTag, ActorText>();
 
 
@@ -84,7 +87,7 @@ public class ScreenTest extends AbstractScreen {
         lstAcRod.add(new ActorRod(10f, 300f, 80f, 80f, ActorRod.RodTag.GOLD_500));
         lstAcRod.add(new ActorRod(10f, 200f, 80f, 80f, ActorRod.RodTag.GOLD_500));
 
-        GameMethods.createPlayScreenActorText(getStageGame(), lstAcRod, lstAcText);
+        GameMethods.createPlayScreenActorText(getStageGame(), lstAcRod, lstAcMouse, lstAcText);
 
         getStageGame().addActor(acHuman);
         getStageGame().addActor(acHuman.getAcPod());

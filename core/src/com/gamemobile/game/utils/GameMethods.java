@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.gamemobile.game.actors.ActorBomb;
 import com.gamemobile.game.actors.ActorButton;
+import com.gamemobile.game.actors.ActorMouse;
 import com.gamemobile.game.actors.ActorPod;
 import com.gamemobile.game.actors.ActorRod;
 import com.gamemobile.game.actors.ActorText;
@@ -17,7 +18,7 @@ import java.util.Random;
 
 public class GameMethods {
 
-    public static void createPlayScreenActorText(Stage stage, ArrayList<ActorRod> lstAcRod, HashMap<ActorText.TextTag, ActorText> lstAcText){
+    public static void createPlayScreenActorText(Stage stage, ArrayList<ActorRod> lstAcRod, ArrayList<ActorMouse> lsAcMouse,HashMap<ActorText.TextTag, ActorText> lstAcText){
         lstAcText.put(ActorText.TextTag.TIMER, new ActorText(ActorText.TextTag.TIMER));
         lstAcText.put(ActorText.TextTag.TARGET, new ActorText(ActorText.TextTag.TARGET));
         lstAcText.put(ActorText.TextTag.MONEY, new ActorText(ActorText.TextTag.MONEY));
@@ -32,6 +33,11 @@ public class GameMethods {
         for(ActorRod rod: lstAcRod){
             if(rod != null){
                 targetTemp += rod.getMoney();
+            }
+        }
+        for(ActorMouse actorMouse: lsAcMouse){
+            if(actorMouse != null){
+                targetTemp += actorMouse.getMoney();
             }
         }
 
@@ -119,12 +125,32 @@ public class GameMethods {
                 updateBombToShoot(acPod, rod, acBomb, btnCancel);
             }
         }
+
     }
+    public static void updateRodCollisionEvent1(ActorPod acPod, ActorBomb acBomb, ArrayList<ActorMouse> lstAcMouse, HashMap<ActorText.TextTag,ActorText> lstAcText, ActorButton btnCancel){
+        for(ActorMouse rod1 : lstAcMouse){
+            if(rod1 != null){
+                rod1.updateCollisionWithPod(acPod, lstAcText.get(ActorText.TextTag.TALKING));
+                rod1.updateCollisionWithBomb(acPod, acBomb);
+                updatePlayerMoney(lstAcText);
+                updateBombToShoot1(acPod, rod1, acBomb, btnCancel);
+            }
+        }
+
+    }
+
 
     public static void disposeAllRod(ArrayList<ActorRod> lstRod){
         for(ActorRod rod : lstRod){
             if(rod != null){
                 rod.remove();
+            }
+        }
+    }
+    public static void disposeAllRod1(ArrayList<ActorMouse> lstRod){
+        for(ActorMouse rod1 : lstRod){
+            if(rod1 != null){
+                rod1.remove();
             }
         }
     }
@@ -157,11 +183,24 @@ public class GameMethods {
             }
         }
     }
+    private static void updateBombToShoot1(ActorPod acPod, ActorMouse actorMouse, ActorBomb bomb, ActorButton cancelButton){
+        cancelButton.updateButtonTouched();
+        if(PlayerInfo.getCurrentBombNum() > 0) {
+            if (cancelButton.isTouched() && bomb.getBombState().equals(ActorBomb.BombState.FREEZE)) {
+                if (acPod.getPodState().equals(ActorPod.PodState.REWIND) && actorMouse.getRodState().equals(ActorMouse.RodState.CATCHED)) {
+                    //do bomb
+                    bomb.setRotation(acPod.getRotation());
+                    bomb.setBombState(ActorBomb.BombState.MOVE);
+                    PlayerInfo.setCurrentBombNum(PlayerInfo.getCurrentBombNum() - 1);
+                }
+            }
+        }
+    }
 
     public static void goWinOrLoseScreen(AbstractScreen currentScreen, GameScreenManager gsm){
         if(PlayerInfo.getCurrentMoney() >= PlayerInfo.getCurrentTarget()){
             PlayerInfo.setCurrentLevel(PlayerInfo.getCurrentLevel() + 1);
-            gsm.setScreen(ScreenConstants.WIN_SCREEN);
+            //gsm.setScreen(ScreenConstants.WIN_SCREEN);
         }
         else {
             gsm.setScreen(ScreenConstants.LOSE_SCREEN);
@@ -207,4 +246,11 @@ public class GameMethods {
             return false;
         }
     }
+    public static boolean isCatchedBoom(ArrayList<ActorRod> lstAcRod, ActorRod rodTNTBox){
+       for(ActorRod rod :lstAcRod){
+       //   if(rodTNTBox.)
+       }
+        return  false;
+    }
+
 }

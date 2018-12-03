@@ -8,7 +8,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.gamemobile.game.Application;
 import com.gamemobile.game.actors.ActorButton;
 import com.gamemobile.game.actors.ActorHuman;
-import com.gamemobile.game.actors.ActorMouse;
 import com.gamemobile.game.actors.ActorRod;
 import com.gamemobile.game.actors.ActorText;
 import com.gamemobile.game.miniscreens.MiniScreenState;
@@ -26,8 +25,7 @@ import java.util.HashMap;
 
 
 
-public class ScreenPlayLevel2 extends AbstractScreen {
-
+public class ScreenPlayLevel8 extends  AbstractScreen {
     private ActorHuman acHuman;
     private ArrayList<ActorRod> lstAcRod;
     private ActorButton shootButton;
@@ -41,10 +39,8 @@ public class ScreenPlayLevel2 extends AbstractScreen {
     private SettingDisplay settingDisplay;
     private ActorButton settingButton;
     private TimeOutDisplay timeOutDisplay;
-    private ArrayList<ActorMouse>lstAcMouse;
 
-
-    public ScreenPlayLevel2(Application app) {
+    public ScreenPlayLevel8(Application app) {
         super(app);
     }
 
@@ -68,7 +64,6 @@ public class ScreenPlayLevel2 extends AbstractScreen {
 
         lstAcRod = new ArrayList<ActorRod>();
         lstAcText = new HashMap<ActorText.TextTag, ActorText>();
-        lstAcMouse = new ArrayList<ActorMouse>();
 
 
         acHuman = new ActorHuman();
@@ -76,27 +71,33 @@ public class ScreenPlayLevel2 extends AbstractScreen {
         boomButton = new ActorButton(128f, 128f, ActorButton.ButtonTag.BOOM);
         settingButton = new ActorButton(100f, 100f, ActorButton.ButtonTag.SETTING);
 
-        lstAcRod.add(new ActorRod(100f, 50f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(250f, 80f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(500f, 10f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(180f, 350f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-
-        lstAcRod.add(new ActorRod(700f, 200f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(500f, 200f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(400f, 150f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(300f, 50f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(700f, 90f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(100f, 120f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-
-        lstAcRod.add(new ActorRod(800f, 100f, 60f, 50f, ActorRod.RodTag.DINAMOND_650));
-        lstAcRod.add(new ActorRod(200f, 200f, 100f, 100f, ActorRod.RodTag.GOLD_500));
-        lstAcRod.add(new ActorRod(50f, 50f, 60f, 50f, ActorRod.RodTag.DINAMOND_650));
-        lstAcRod.add(new ActorRod(600f, 100f, 80f, 80f, ActorRod.RodTag.GOLD_250));
-        lstAcRod.add(new ActorRod(700f, 300f, 60f, 50f, ActorRod.RodTag.DINAMOND_650));
-        lstAcRod.add(new ActorRod(10f, 300f, 80f, 80f, ActorRod.RodTag.GOLD_250));
-        lstAcRod.add(new ActorRod(10f, 200f, 100f, 100f, ActorRod.RodTag.GOLD_500));
-
-       GameMethods.createPlayScreenActorText(getStageGame(), lstAcRod, lstAcMouse, lstAcText);
+        this.lstAcRod.add(new ActorRod(370.0F, 80.0F, 40.0F, 30.0F, ActorRod.RodTag.DINAMOND_650));
+        this.lstAcRod.add(new ActorRod(600.0F, 80.0F, 40.0F, 30.0F, ActorRod.RodTag.DINAMOND_650));
+        this.lstAcRod.add(new ActorRod(705.0F, 340.0F, 40.0F, 30.0F, ActorRod.RodTag.DINAMOND_650));
+        this.lstAcRod.add(new ActorRod(125.0F, 70.0F, 40.0F, 30.0F, ActorRod.RodTag.DINAMOND_650));
+        this.lstAcRod.add(new ActorRod(400.0F, 100.0F, 80.0F, 80.0F, ActorRod.RodTag.GOLD_500));
+        this.lstAcRod.add(new ActorRod(550.0F, 100.0F, 80.0F, 80.0F, ActorRod.RodTag.GOLD_500));
+        this.lstAcRod.add(new ActorRod(405.0F, 2500.0F, 60.0F, 50.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(650.0F, 260.0F, 60.0F, 50.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(120.0F, 200.0F, 60.0F, 50.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(400.0F, 200.0F, 60.0F, 50.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(650.0F, 300.0F, 40.0F, 40.0F, ActorRod.RodTag.ROCK_10));
+        this.lstAcRod.add(new ActorRod(320.0F, 275.0F, 40.0F, 40.0F, ActorRod.RodTag.ROCK_10));
+        this.lstAcRod.add(new ActorRod(335.0F, 165.0F, 40.0F, 40.0F, ActorRod.RodTag.ROCK_10));
+        this.lstAcRod.add(new ActorRod(685.0F, 350.0F, 40.0F, 40.0F, ActorRod.RodTag.ROCK_10));
+        this.lstAcRod.add(new ActorRod(715.0F, 355.0F, 40.0F, 40.0F, ActorRod.RodTag.ROCK_10));
+        this.lstAcRod.add(new ActorRod(400.0F, 300.0F, 60.0F, 60.0F, ActorRod.RodTag.GOLD_250));
+        this.lstAcRod.add(new ActorRod(480.0F, 150.0F, 60.0F, 60.0F, ActorRod.RodTag.GOLD_250));
+        this.lstAcRod.add(new ActorRod(700.0F, 300.0F, 40.0F, 40.0F, ActorRod.RodTag.GOLD_100));
+        this.lstAcRod.add(new ActorRod(750.0F, 330.0F, 40.0F, 40.0F, ActorRod.RodTag.GOLD_100));
+        this.lstAcRod.add(new ActorRod(480.0F, 340.0F, 40.0F, 40.0F, ActorRod.RodTag.GOLD_100));
+        this.lstAcRod.add(new ActorRod(480.0F, 260.0F, 40.0F, 40.0F, ActorRod.RodTag.GOLD_100));
+        this.lstAcRod.add(new ActorRod(500.0F, 275.0F, 40.0F, 40.0F, ActorRod.RodTag.GOLD_100));
+        this.lstAcRod.add(new ActorRod(150.0F, 290.0F, 40.0F, 40.0F, ActorRod.RodTag.GOLD_100));
+        this.lstAcRod.add(new ActorRod(590.0F, 200.0F, 60.0F, 60.0F, ActorRod.RodTag.GOLD_250));
+        this.lstAcRod.add(new ActorRod(650.0F, 300.0F, 60.0F, 60.0F, ActorRod.RodTag.GOLD_250));
+        this.lstAcRod.add(new ActorRod(715.0F, 200.0F, 60.0F, 60.0F, ActorRod.RodTag.GOLD_250));
+        //*GameMethods.createPlayScreenActorText(getStageGame(), lstAcRod, lstAcText);
 
         getStageGame().addActor(acHuman);
         getStageGame().addActor(acHuman.getAcPod());
@@ -127,7 +128,7 @@ public class ScreenPlayLevel2 extends AbstractScreen {
         Gdx.input.setInputProcessor(getStageGame());
         Gdx.input.setInputProcessor(stageSetting);
 
-        setScreenState(ScreenState.PAUSE);
+        setScreenState(AbstractScreen.ScreenState.PAUSE);
     }
 
     @Override
@@ -139,7 +140,7 @@ public class ScreenPlayLevel2 extends AbstractScreen {
         SplashDoors.drawDoor(app.batch);
         app.batch.end();
 
-        if(getScreenState().equals(ScreenState.PAUSE)){
+        if(getScreenState().equals(AbstractScreen.ScreenState.PAUSE)){
             pauseTempTime[1] = TimeUtils.millis()/1000;
             if(pauseTempTime[1] - pauseTempTime[0] >=1){
                 pauseTempTime[0] = pauseTempTime[1];
@@ -173,7 +174,7 @@ public class ScreenPlayLevel2 extends AbstractScreen {
 
 
 
-        if(getScreenState().equals(ScreenState.PLAY)) {
+        if(getScreenState().equals(AbstractScreen.ScreenState.PLAY)) {
 
             getStageGame().act();
 
@@ -187,7 +188,7 @@ public class ScreenPlayLevel2 extends AbstractScreen {
 
             GameMethods.updateBombNumber(lstAcText);
 
-            GameMethods.updateRodCollisionEvent(acHuman.getAcPod(), acHuman.getAcBomb(), lstAcRod, lstAcText, boomButton);
+           // GameMethods.updateRodCollisionEvent(acHuman.getAcPod(), acHuman.getAcBomb(), lstAcRod, lstAcText, boomButton);
 
             GameMethods.updatePodToShoot(acHuman.getAcPod(), shootButton, boomButton);
 
@@ -209,7 +210,7 @@ public class ScreenPlayLevel2 extends AbstractScreen {
         System.out.println(TimeUtils.millis()/1000);
         pauseTempTime[0] = TimeUtils.millis()/1000;
         acHuman.getAcPod().muteAllSound();
-        setScreenState(ScreenState.PAUSE);
+        setScreenState(AbstractScreen.ScreenState.PAUSE);
         if(targetDisplay.getMiniScreenState().equals(MiniScreenState.FINISH)
                 && timeOutDisplay.getMiniScreenState().equals(MiniScreenState.HIDE)){
             settingDisplay.showDisplay();
@@ -219,7 +220,7 @@ public class ScreenPlayLevel2 extends AbstractScreen {
 
     private void resumeCustom(){
         acHuman.getAcPod().unmuteAllSound();
-        setScreenState(ScreenState.PLAY);
+        setScreenState(AbstractScreen.ScreenState.PLAY);
         GameMethods.resumeTimerSound(lstAcText);
     }
 
@@ -250,5 +251,5 @@ public class ScreenPlayLevel2 extends AbstractScreen {
         GameMethods.disposeAllRod(lstAcRod);
         stageSetting.dispose();
         super.dispose();
-    }
+}
 }

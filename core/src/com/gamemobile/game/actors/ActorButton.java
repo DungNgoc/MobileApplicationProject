@@ -185,7 +185,7 @@ public class ActorButton extends Actor {
         }
     }
 
-    public void updateButtonTouched(){
+    public void  updateButtonTouched(){
 
         if (!Gdx.input.justTouched()) {
             isTouched = false;

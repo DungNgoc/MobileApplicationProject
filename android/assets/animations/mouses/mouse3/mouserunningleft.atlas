@@ -1,0 +1,47 @@
+mouserunningleft.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bz0
+  rotate: false
+  xy: 0, 0
+  size: 187,129
+  orig: 187,129
+  offset: 0, 0
+  index: -1
+bz1
+  rotate: false
+  xy: 0, 129
+ size: 187,129
+   orig: 187,129
+  offset: 0, 0
+  index: -1
+bz2
+  rotate: false
+  xy: 187, 0
+  size: 187,129
+  orig: 187,129
+  offset: 0, 0
+  index: -1
+bz3
+  rotate: false
+  xy: 187,129
+  size: 187,129
+  orig: 187,129
+  offset: 0, 0
+  index: -1
+bz4
+  rotate: false
+  xy: 374, 0
+  size: 187,129
+  orig: 187,129
+  offset: 0, 0
+  index: -1
+bz4
+  rotate: false
+  xy: 374, 129
+  size: 187,129
+  orig: 187,129
+  offset: 0, 0
+  index: -1
+

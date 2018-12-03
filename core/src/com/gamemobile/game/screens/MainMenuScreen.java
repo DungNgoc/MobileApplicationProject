@@ -111,11 +111,11 @@ public class MainMenuScreen extends AbstractScreen {
         if(acHumanImage.isCheck == false){
 
 //            acHumanImage = new ActorImage("images/textureobjects/humanbarrow.png", 170f, 30f, 170.0F, 200.0F);
-            acHumanImage.setMoveRight(0.2F, 400f);
+            acHumanImage.setMoveRight(0.5F, 400f);
         }
        else {
         //    acHumanImage = new ActorImage("images/textureobjects/humanbarrowright.png", 170f, 30f, 170.0F, 200.0F);
-           acHumanImage.setMoveLeft(0.2F, 400f);
+           acHumanImage.setMoveLeft(0.5F, 400f);
        }// acHumanImage.setRotationWave(0.2F, 4.0F);
         // acHumanImage.setNonRotation();
     }
