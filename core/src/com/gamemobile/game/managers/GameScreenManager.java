@@ -35,9 +35,9 @@ public class GameScreenManager {
 
     public AbstractScreen getNextScreen(int level) {
         gameScreen = null;
-        //if (level == ScreenConstants.WIN_SCREEN) {
-       //     gameScreen = new WinScreen(this.app);
-      //  }
+        if (level == ScreenConstants.WIN_SCREEN) {
+           gameScreen = new WinScreen(this.app);
+      }
         if (level == ScreenConstants.LOSE_SCREEN) {
             gameScreen = new LoseScreen(this.app);
         }

@@ -76,25 +76,32 @@ public class ScreenPlayLevel2 extends AbstractScreen {
         boomButton = new ActorButton(128f, 128f, ActorButton.ButtonTag.BOOM);
         settingButton = new ActorButton(100f, 100f, ActorButton.ButtonTag.SETTING);
 
-        lstAcRod.add(new ActorRod(100f, 50f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(250f, 80f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(500f, 10f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(180f, 350f, 80f, 70f, ActorRod.RodTag.ROCK_20));
+        lstAcRod.add(new ActorRod(600f, 50f, 100f, 100f, ActorRod.RodTag.GOLD_500));
+        lstAcRod.add(new ActorRod(150f, 50f, 100f, 100f, ActorRod.RodTag.GOLD_500));
 
-        lstAcRod.add(new ActorRod(700f, 200f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(500f, 200f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(400f, 150f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(300f, 50f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(700f, 90f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(100f, 120f, 80f, 70f, ActorRod.RodTag.ROCK_20));
+        lstAcRod.add(new ActorRod(150f, 170f, 70f, 60f, ActorRod.RodTag.ROCK_20));
+        lstAcRod.add(new ActorRod(170f, 330f, 70f, 60f, ActorRod.RodTag.ROCK_20));
+        lstAcRod.add(new ActorRod(180f, 250f, 60f, 60f, ActorRod.RodTag.QUESTIONBAGTYPE1));
+        lstAcRod.add(new ActorRod(270f, 130f, 70f, 60f, ActorRod.RodTag.ROCK_20));
+        lstAcRod.add(new ActorRod(350f, 210f, 70f, 60f, ActorRod.RodTag.ROCK_20));
 
-        lstAcRod.add(new ActorRod(800f, 100f, 60f, 50f, ActorRod.RodTag.DINAMOND_650));
-        lstAcRod.add(new ActorRod(200f, 200f, 100f, 100f, ActorRod.RodTag.GOLD_500));
-        lstAcRod.add(new ActorRod(50f, 50f, 60f, 50f, ActorRod.RodTag.DINAMOND_650));
-        lstAcRod.add(new ActorRod(600f, 100f, 80f, 80f, ActorRod.RodTag.GOLD_250));
-        lstAcRod.add(new ActorRod(700f, 300f, 60f, 50f, ActorRod.RodTag.DINAMOND_650));
-        lstAcRod.add(new ActorRod(10f, 300f, 80f, 80f, ActorRod.RodTag.GOLD_250));
-        lstAcRod.add(new ActorRod(10f, 200f, 100f, 100f, ActorRod.RodTag.GOLD_500));
+        lstAcRod.add(new ActorRod(220f, 200f, 60f, 60f, ActorRod.RodTag.ROCK_10));
+
+
+        lstAcRod.add(new ActorRod(500f, 120f, 80f, 80f, ActorRod.RodTag.GOLD_250));
+        lstAcRod.add(new ActorRod(650f, 120f, 80f, 80f, ActorRod.RodTag.GOLD_250));
+        lstAcRod.add(new ActorRod(600f, 170f, 80f, 80f, ActorRod.RodTag.GOLD_250));
+        lstAcRod.add(new ActorRod(600f, 270f, 80f, 80f, ActorRod.RodTag.GOLD_250));
+
+        lstAcRod.add(new ActorRod(90f, 50f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(400f, 190f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(450f, 170f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(400f, 270f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(510f, 260f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(610f, 330f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(570f, 260f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(650f, 260f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(690f, 260f, 60f, 60f, ActorRod.RodTag.GOLD_100));
 
        GameMethods.createPlayScreenActorText(getStageGame(), lstAcRod, lstAcMouse, lstAcText);
 

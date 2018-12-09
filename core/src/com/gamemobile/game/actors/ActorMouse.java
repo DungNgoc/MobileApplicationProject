@@ -18,7 +18,8 @@ public class ActorMouse extends Actor {
 
     public enum RodTag{
         MOUSERUNNING1,
-        MOUSERUNNING2
+        MOUSERUNNING2,
+        MOUSERUNNING3
     }
 
     public   enum RodState{
@@ -67,7 +68,7 @@ public class ActorMouse extends Actor {
         this.xRightStop = xRightStop;
        // mouse = new AnimationCustom("animations/mouses/mouserunning.atlas", 3,
          //      x, y, width, height);
-        mouse = new AnimationCustom(pathFileLeft, 3, x, y, width, height);
+        mouse = new AnimationCustom(pathFileLeft, 4, x, y, width, height);
         setPosition(x, y);
         mouse.setPosition(x, y);
         setSize(width, height);
@@ -143,7 +144,7 @@ public class ActorMouse extends Actor {
 
             if (mouse.getX() <= xLeftStop) {
                isCheck = true;
-                mouse = new AnimationCustom(pathFileRight, 3,
+                mouse = new AnimationCustom(pathFileRight, 4,
                         getX(),  firstShape[1], firstShape[2], firstShape[3]);
                 //mouse = new AnimationCustom("animations/mouses/mouse1/mouserunningright/mouserunningright.atlas", 3,
                        // getX() , firstShape[1], firstShape[2], firstShape[3]);
@@ -163,7 +164,7 @@ public class ActorMouse extends Actor {
             if (mouse.getX() >= xRightStop) {
                // setMoveLeft(1.5f, 400f);
                 isCheck = false;
-                mouse = new AnimationCustom(pathFileLeft, 3, getX(), firstShape[1], firstShape[2], firstShape[3]);
+                mouse = new AnimationCustom(pathFileLeft, 4, getX(), firstShape[1], firstShape[2], firstShape[3]);
                // mouse = new AnimationCustom("animations/mouses/mouse1/mouserunningleft/mouserunningleft.atlas", 3,
                       //  getX(), firstShape[1], firstShape[2], firstShape[3]);
             }
@@ -207,7 +208,7 @@ public class ActorMouse extends Actor {
 
         if(tag.equals(RodTag.MOUSERUNNING1)){
             money = 2;
-            weight = 1.5f *ScreenConstants.TRANSFORM_Y;
+            weight = 1.7f *ScreenConstants.TRANSFORM_Y;
           // mouse = new AnimationCustom("animations/mouses/mouserunning.atlas", 3, 150f, 40f, 12f, 24f);
           //  mouse = new ActorMouse(100f, 100f, 30f, 30f, RodTag.MOUSERUNNING);
             //textureRod = new Texture("animations/mouses/mouserunning.png");
@@ -219,11 +220,19 @@ public class ActorMouse extends Actor {
         }
         if(tag.equals(RodTag.MOUSERUNNING2)){
             money = 602;
-            weight = 1.5f * ScreenConstants.TRANSFORM_Y;
+            weight = 1.7f * ScreenConstants.TRANSFORM_Y;
             //mouse = new AnimationCustom("animations/mouses/mouse2/mouserunningleft", 3f, 150f, 40f, 12f, 24f);
             rodSound = new SoundEffect("sounds/bigmoney.ogg");
             return;
         }
+        if(tag.equals(RodTag.MOUSERUNNING3)){
+            money = 802;
+            weight = 1.7f * ScreenConstants.TRANSFORM_Y;
+            //mouse = new AnimationCustom("animations/mouses/mouse2/mouserunningleft", 3f, 150f, 40f, 12f, 24f);
+            rodSound = new SoundEffect("sounds/bigmoney.ogg");
+            return;
+        }
+
     }
 
     private void moveRod() {
@@ -362,9 +371,9 @@ public class ActorMouse extends Actor {
         mouse.setRotation(0);
 
         setX(pod.getX() + pod.getWidth()/2 - getWidth()/2);
-        mouse.setX1(pod.getX() + pod.getWidth()/2 - getWidth()/2-12f);
+        mouse.setX1(pod.getX() + pod.getWidth()/2 - getWidth()/2-7f);
         setY(pod.getY() - getHeight()*(1f-scaleNum));
-        mouse.setY1(pod.getY() - getHeight()*(1f-scaleNum)+7f);
+        mouse.setY1(pod.getY() - getHeight()*(1f-scaleNum)+15f);
 
         pod.setRotation(rotTemp);
 

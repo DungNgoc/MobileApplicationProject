@@ -199,8 +199,14 @@ public class GameMethods {
 
     public static void goWinOrLoseScreen(AbstractScreen currentScreen, GameScreenManager gsm){
         if(PlayerInfo.getCurrentMoney() >= PlayerInfo.getCurrentTarget()){
-            PlayerInfo.setCurrentLevel(PlayerInfo.getCurrentLevel() + 1);
-            //gsm.setScreen(ScreenConstants.WIN_SCREEN);
+           if(PlayerInfo.getCurrentLevel()== 10)
+               gsm.setScreen(ScreenConstants.WIN_SCREEN);
+           else{
+               PlayerInfo.setCurrentLevel(PlayerInfo.getCurrentLevel() + 1);
+               gsm.setScreen(ScreenConstants.SHOP_SCREEN);
+           }
+            //
+
         }
         else {
             gsm.setScreen(ScreenConstants.LOSE_SCREEN);

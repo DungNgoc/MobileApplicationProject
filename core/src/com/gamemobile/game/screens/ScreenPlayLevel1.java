@@ -45,9 +45,9 @@ public class ScreenPlayLevel1 extends AbstractScreen{
     private SettingDisplay settingDisplay;
     private ActorButton settingButton;
     private TimeOutDisplay timeOutDisplay;
-    private float rotation;
+   // private float rotation;
 
-    private ActorMouse actorMouse;// actor mouse
+ //   private ActorMouse actorMouse;// actor mouse
 
     public ScreenPlayLevel1(Application app) {
         super(app);
@@ -55,10 +55,6 @@ public class ScreenPlayLevel1 extends AbstractScreen{
 
     @Override
     public void update(float delta) {
-        //   makeHumanRun();
-        //makeHumanRun();
-        //if( actorMouse.moveRange == 0)
-        // actorMouse.setMoveRight(0.5f, Application.DESKTOP_WIDTH);
     }
 
     @Override
@@ -86,27 +82,25 @@ public class ScreenPlayLevel1 extends AbstractScreen{
         boomButton = new ActorButton(128f, 128f, ActorButton.ButtonTag.BOOM);
         settingButton = new ActorButton(100f, 100f, ActorButton.ButtonTag.SETTING);
 
-        lstAcRod.add(new ActorRod(700f, 200f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(500f, 200f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(400f, 150f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(300f, 50f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(650f, 90f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(100f, 120f, 80f, 70f, ActorRod.RodTag.ROCK_20));
-        lstAcRod.add(new ActorRod(750f, 100f, 60f, 60f, ActorRod.RodTag.ROCK_10));
 
-        lstAcRod.add(new ActorRod(200f, 100f, 100f, 100f, ActorRod.RodTag.GOLD_500));
-        lstAcRod.add(new ActorRod(90f, 50f, 60f, 60f, ActorRod.RodTag.GOLD_100));
-        lstAcRod.add(new ActorRod(600f, 100f, 80f, 80f, ActorRod.RodTag.GOLD_250));
+        lstAcRod.add(new ActorRod(580f, 240f, 60f, 60f, ActorRod.RodTag.TNTBOX));
+        lstAcRod.add(new ActorRod(380f, 240f, 60f, 60f, ActorRod.RodTag.TNTBOX));
 
-        //lstAcRod.add(new ActorRod(700f, 300f, 60f, 50f,ActorRod.RodTag.DINAMOND_650));
-        lstAcRod.add(new ActorRod(10f, 300f, 80f, 80, ActorRod.RodTag.GOLD_250));
-        lstAcRod.add(new ActorRod(10f, 200f, 100f, 100f, ActorRod.RodTag.GOLD_500));
-        lstAcRod.add(new ActorRod(650f, 200f, 60f, 60f, ActorRod.RodTag.QUESTIONBAGTYPE1));
-        lstAcRod.add(new ActorRod(300f, 300f, 60f, 60f, ActorRod.RodTag.TNTBOX));
+        lstAcRod.add(new ActorRod(10f, 5f, 120f, 120f, ActorRod.RodTag.GOLD_500));
+        lstAcRod.add(new ActorRod(480f, -40f, 120f, 120f, ActorRod.RodTag.GOLD_500));
+        lstAcRod.add(new ActorRod(550f, 80f, 120f, 120f, ActorRod.RodTag.GOLD_500));
 
-        lstAcMouse.add(new ActorMouse("animations/mouses/mouserunning.atlas","animations/mouses/mouse1/mouserunningright/mouserunningright.atlas",560f, 250f, 55f, 55f, ActorMouse.RodTag.MOUSERUNNING1, 170f, 700f));
-        lstAcMouse.add(new ActorMouse("animations/mouses/mouse2/mouserunningleft.atlas","animations/mouses/mouse2/mouserunningright.atlas", 400f, 200f, 70f, 70f, ActorMouse.RodTag.MOUSERUNNING2, 150f, 500f  ));
-      //lstAcRod.add(new ActorRod( 600f, 200f, 80f, 80f, ActorRod.RodTag.MOUSERUNNING));
+        lstAcRod.add(new ActorRod(10f, 150f, 60f, 60f, ActorRod.RodTag.GOLD_50));
+        lstAcRod.add(new ActorRod(510f, 120f, 60f, 60f, ActorRod.RodTag.GOLD_50));
+
+        lstAcRod.add(new ActorRod(70f, 300f, 40f,40f, ActorRod.RodTag.DOGBONE_5));
+        lstAcRod.add(new ActorRod(450f, 230f, 40f,40f, ActorRod.RodTag.DOGBONE_5));
+
+        lstAcRod.add(new ActorRod(90f, 90f, 50f, 50f, ActorRod.RodTag.SKULL_3));
+        lstAcRod.add(new ActorRod(800f, 300f, 50f, 50f, ActorRod.RodTag.SKULL_3));
+        // lstAcRod.add(new ActorRod(290f, 130f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        //lstAcRod.add(new ActorRod(330f, 20f, 60f, 60f, ActorRod.RodTag.GOLD_100));
+        lstAcRod.add(new ActorRod(340f, 250f, 60f, 60f, ActorRod.RodTag.QUESTIONBAGTYPE1));
 
         GameMethods.createPlayScreenActorText(getStageGame(), lstAcRod, lstAcMouse, lstAcText);
 
@@ -118,6 +112,7 @@ public class ScreenPlayLevel1 extends AbstractScreen{
                 getStageGame().addActor(rod);
             }
         }
+
         for(ActorMouse actor :lstAcMouse){
             if(actor != null)
                 getStageGame().addActor(actor);
@@ -155,12 +150,22 @@ public class ScreenPlayLevel1 extends AbstractScreen{
     private void makeMouseRun(){
 
 
-        if(lstAcMouse.get(0).isCheck == false)
-             lstAcMouse.get(0).setMoveLeft(0.5f, 400);
-         else lstAcMouse.get(0).setMoveRight(0.5f, 400);
-        if(lstAcMouse.get(1).isCheck == false)
-          lstAcMouse.get(1).setMoveLeft(0.5f, 400);
-      else lstAcMouse.get(1).setMoveRight(0.5f, 400);
+        for(ActorMouse actor :lstAcMouse){
+            if(actor != null)
+                if(actor.isCheck==false){
+                actor.setMoveLeft(0.65f, 1000);
+                }
+                else actor.setMoveRight(0.65f, 1000);
+        }
+        /*for(ActorRod actorRod:lstAcRod){
+            if (actorRod != null){
+                if(actorRod.ischeckboom== true){
+                    if (actorRod.getX()<actorRod.pos){
+                        actorRod.remove();
+                    }
+                }
+            }
+        }*/
 
     }
 
@@ -221,6 +226,9 @@ public class ScreenPlayLevel1 extends AbstractScreen{
                     pause();
                 }
             }
+           // for (ActorRod rod: lstAcRod){
+             //   if()
+            //}
            // if(GameMethods.is)
          /*  if (!GameMethods.checkTimePlay(lstAcText, startTime)
                     || GameMethods.isCatchedAllRod1(lstAcMouse)) {

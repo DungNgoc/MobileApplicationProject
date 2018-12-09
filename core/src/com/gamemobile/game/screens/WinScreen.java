@@ -114,12 +114,13 @@ public class WinScreen extends AbstractScreen {
             musicThugsLife.stopPlay();
             soundCloseDoor.playSound();
             if(SplashDoors.checkDoorClose() && TimeUtils.millis() - startTime >= 2000){
-                if(PlayerInfo.getCurrentLevel() > ScreenConstants.PLAY_LEVEL_SCREEN.length){
+                /*if(PlayerInfo.getCurrentLevel() > ScreenConstants.PLAY_LEVEL_SCREEN.length){
                     app.gsm.setScreen(ScreenConstants.FINISH_SCREEN);
                 }
                 else {
                     app.gsm.setScreen(ScreenConstants.SHOP_SCREEN);
-                }
+                }*/
+                app.gsm.setScreen(ScreenConstants.MAINMENU_SCREEN);
                 dispose();
             }
         }
