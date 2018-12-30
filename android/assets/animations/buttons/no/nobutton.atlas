@@ -1,0 +1,19 @@
+
+nobutton.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+play0
+  rotate: false
+  xy: 1, 5
+  size: 145, 147
+  orig: 145, 147
+  offset: 0, 0
+  index: -1
+play1
+  rotate: false
+  xy: 1, 1
+  size: 145, 147
+  orig: 145, 147
+  offset: 0, 0
+  index: -1

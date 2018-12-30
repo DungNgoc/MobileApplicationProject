@@ -16,6 +16,9 @@ public class ActorButton extends Actor {
         SETTING,
         TARGET_PLAY,
         MAINMENU_PLAY,
+        HOW_TO_PLAY,
+        EXIT,
+        YES, NO,
         SETTING_MAINMENU,
         SETTING_RESUME,
         WIN_GOTO_SHOP,
@@ -141,6 +144,18 @@ public class ActorButton extends Actor {
         if(buttonTag.equals(ButtonTag.FINISH_BACK_MENU)){
             buttonAnimation = new AnimationCustom("animations/buttons/backmainmenu/backmainmenu.atlas", 20f,  getX(), getY(), getWidth(), getHeight());
         }
+        if(buttonTag.equals(ButtonTag.HOW_TO_PLAY)){
+            buttonAnimation = new AnimationCustom("animations/buttons/howtoplay/howtoplay.atlas", 20f, getX(), getY(), getWidth(), getHeight());
+        }
+        if(buttonTag.equals(ButtonTag.EXIT)){
+            buttonAnimation = new AnimationCustom("animations/buttons/exit/exit.atlas", 20f, getX(), getY(), getWidth(), getHeight());
+        }
+        if(buttonTag.equals(ButtonTag.YES)){
+            buttonAnimation = new AnimationCustom("animations/buttons/yes/yesbutton.atlas", 20f, getX(), getY(), getWidth(), getHeight());
+        }
+        if(buttonTag.equals(ButtonTag.NO)){
+            buttonAnimation = new AnimationCustom("animations/buttons/no/nobutton.atlas", 20f, getX(), getY(), getWidth(),getHeight());
+        }
     }
 
     private void setButtonPosition(float width, float height){
@@ -182,6 +197,18 @@ public class ActorButton extends Actor {
         }
         if(buttonTag.equals(ButtonTag.FINISH_BACK_MENU)){
             setPosition(Application.DESKTOP_WIDTH - width - 2, 0);
+        }
+        if(buttonTag.equals(ButtonTag.HOW_TO_PLAY)){
+            setPosition(730f, 415f);
+        }
+        if(buttonTag.equals(ButtonTag.EXIT)){
+            setPosition(730f, 355f);
+        }
+        if(buttonTag.equals(ButtonTag.YES)){
+            setPosition(Application.DESKTOP_WIDTH/2 - 110f, 300f);
+        }
+        if(buttonTag.equals(ButtonTag.NO)){
+            setPosition(Application.DESKTOP_WIDTH/2 +110f + 20f, 300f);
         }
     }
 

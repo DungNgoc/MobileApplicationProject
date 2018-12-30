@@ -83,24 +83,24 @@ public class ScreenPlayLevel1 extends AbstractScreen{
         settingButton = new ActorButton(100f, 100f, ActorButton.ButtonTag.SETTING);
 
 
-        lstAcRod.add(new ActorRod(580f, 240f, 60f, 60f, ActorRod.RodTag.TNTBOX));
-        lstAcRod.add(new ActorRod(380f, 240f, 60f, 60f, ActorRod.RodTag.TNTBOX));
-
-        lstAcRod.add(new ActorRod(10f, 5f, 120f, 120f, ActorRod.RodTag.GOLD_500));
-        lstAcRod.add(new ActorRod(480f, -40f, 120f, 120f, ActorRod.RodTag.GOLD_500));
-        lstAcRod.add(new ActorRod(550f, 80f, 120f, 120f, ActorRod.RodTag.GOLD_500));
-
-        lstAcRod.add(new ActorRod(10f, 150f, 60f, 60f, ActorRod.RodTag.GOLD_50));
-        lstAcRod.add(new ActorRod(510f, 120f, 60f, 60f, ActorRod.RodTag.GOLD_50));
-
-        lstAcRod.add(new ActorRod(70f, 300f, 40f,40f, ActorRod.RodTag.DOGBONE_5));
-        lstAcRod.add(new ActorRod(450f, 230f, 40f,40f, ActorRod.RodTag.DOGBONE_5));
-
-        lstAcRod.add(new ActorRod(90f, 90f, 50f, 50f, ActorRod.RodTag.SKULL_3));
-        lstAcRod.add(new ActorRod(800f, 300f, 50f, 50f, ActorRod.RodTag.SKULL_3));
+        this.lstAcRod.add(new ActorRod(700.0F, 200.0F, 70.0F, 60.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(500.0F, 200.0F, 70.0F, 60.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(400.0F, 150.0F, 70.0F, 60.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(300.0F, 50.0F, 70.0F, 60.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(650.0F, 90.0F, 70.0F, 60.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(100.0F, 120.0F, 70.0F, 60.0F, ActorRod.RodTag.ROCK_20));
+        this.lstAcRod.add(new ActorRod(750.0F, 100.0F, 60.0F, 60.0F, ActorRod.RodTag.ROCK_10));
+        this.lstAcRod.add(new ActorRod(200.0F, 100.0F, 100.0F, 100.0F, ActorRod.RodTag.GOLD_500));
+        this.lstAcRod.add(new ActorRod(90.0F, 50.0F, 60.0F, 60.0F, ActorRod.RodTag.GOLD_100));
+        this.lstAcRod.add(new ActorRod(600.0F, 100.0F, 80.0F, 80.0F, ActorRod.RodTag.GOLD_250));
+      //  this.lstAcRod.add(new ActorRod(700.0F, 300.0F, 40.0F, 30.0F, ActorRod.RodTag.DINAMOND_650));
+        this.lstAcRod.add(new ActorRod(10.0F, 300.0F, 80.0F, 80.0F, ActorRod.RodTag.GOLD_250));
+        this.lstAcRod.add(new ActorRod(10.0F, 200.0F, 100.0F, 100.0F, ActorRod.RodTag.GOLD_500));
+        //this.lstAcRod.add(new ActorRod(650.0F, 200.0F, 50.0F, 50.0F, ActorRod.RodTag.QUESTIONBAGTYPE1));
+        //this.lstAcRod.add(new ActorRod(600.0F, 200.0F, 80.0F, 80.0F, ActorRod.RodTag.MOUSERUNNING));
         // lstAcRod.add(new ActorRod(290f, 130f, 60f, 60f, ActorRod.RodTag.GOLD_100));
         //lstAcRod.add(new ActorRod(330f, 20f, 60f, 60f, ActorRod.RodTag.GOLD_100));
-        lstAcRod.add(new ActorRod(340f, 250f, 60f, 60f, ActorRod.RodTag.QUESTIONBAGTYPE1));
+        //lstAcRod.add(new ActorRod(340f, 250f, 60f, 60f, ActorRod.RodTag.QUESTIONBAGTYPE1));
 
         GameMethods.createPlayScreenActorText(getStageGame(), lstAcRod, lstAcMouse, lstAcText);
 
@@ -157,15 +157,6 @@ public class ScreenPlayLevel1 extends AbstractScreen{
                 }
                 else actor.setMoveRight(0.65f, 1000);
         }
-        /*for(ActorRod actorRod:lstAcRod){
-            if (actorRod != null){
-                if(actorRod.ischeckboom== true){
-                    if (actorRod.getX()<actorRod.pos){
-                        actorRod.remove();
-                    }
-                }
-            }
-        }*/
 
     }
 
@@ -217,7 +208,7 @@ public class ScreenPlayLevel1 extends AbstractScreen{
         if(getScreenState().equals(ScreenState.PLAY)) {
 
             getStageGame().act();
-           makeMouseRun();// let mouse move
+            makeMouseRun();// let mouse move
             getStageGame().draw();
            if (!GameMethods.checkTimePlay(lstAcText, startTime)
                     || GameMethods.isCatchedAllRod(lstAcRod) ){//|| GameMethods.isCatchedAllRod1(lstAcMouse)) {
@@ -226,19 +217,7 @@ public class ScreenPlayLevel1 extends AbstractScreen{
                     pause();
                 }
             }
-           // for (ActorRod rod: lstAcRod){
-             //   if()
-            //}
-           // if(GameMethods.is)
-         /*  if (!GameMethods.checkTimePlay(lstAcText, startTime)
-                    || GameMethods.isCatchedAllRod1(lstAcMouse)) {
-                if(timeOutDisplay.getMiniScreenState().equals(MiniScreenState.HIDE)){
-                    timeOutDisplay.showDisplay();
-                    pause();
-                    //Log
-                }
-            }*/
-            //makeHumanRun1();
+
             GameMethods.updateBombNumber(lstAcText);
 
             GameMethods.updateRodCollisionEvent(acHuman.getAcPod(), acHuman.getAcBomb(), lstAcRod, lstAcText, boomButton);

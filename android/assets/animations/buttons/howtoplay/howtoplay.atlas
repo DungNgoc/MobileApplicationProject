@@ -1,0 +1,19 @@
+
+howtoplay.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+howtoplay0
+  rotate: false
+  xy: 1, 5
+  size: 199, 57
+  orig: 199, 57
+  offset: 0, 0
+  index: -1
+howtoplay1
+  rotate: false
+  xy: 1, 1
+  size: 199, 57
+  orig: 199, 57
+  offset: 0, 0
+  index: -1
